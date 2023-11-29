@@ -21,9 +21,6 @@
                     <td>
                         <a href="{{ route('admin.projects.show', $project) }}"
                             class="card-link btn btn-success d-inline-block mb-2"><i class="fa-regular fa-eye"></i></a>
-                        <a href="{{ route('admin.projects.edit', $project) }}"
-                            class="card-link btn btn-warning d-inline-block mb-2"><i class="fa-solid fa-pencil"></i></a>
-                        @include('admin.partials.delete')
                     </td>
                 </tr>
             @endforeach

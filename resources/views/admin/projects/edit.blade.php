@@ -28,9 +28,7 @@
             </div>
             <div class="text-center">
 
-                <button type="submit" class="btn btn-primary">Crea</button>
-                <button type="reset" class="btn btn-warning">Reset</button>
-
+                <button type="submit" class="btn btn-primary">Modifica</button>
             </div>
         </form>
     </div>

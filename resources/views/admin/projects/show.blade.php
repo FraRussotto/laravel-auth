@@ -19,7 +19,10 @@
                 <td>
                     <a href="{{ $project->link }}">{{ $project->link }}</a>
                 </td>
-                <td>@include('admin.partials.delete')</td>
+                <td>
+                    @include('admin.partials.edit')
+                    @include('admin.partials.delete')
+                </td>
             </tr>
         </tbody>
     </table>
