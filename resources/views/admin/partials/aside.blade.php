@@ -1,13 +1,19 @@
 <aside>
     <ul class="nav d-flex flex-column">
-        <li class="nav-item">
-            <a target="_blank" href="{{ route('home') }}">Guest</a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('admin.home') }}">Dashboard</a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('admin.projects.index') }}">Lista progetti</a>
-        </li>
+
+        <a target="_blank" href="{{ route('home') }}">
+            <li class="nav-item">Guest</li>
+        </a>
+
+
+        <a href="{{ route('admin.home') }}">
+            <li class="nav-item">Dashboard</li>
+        </a>
+
+
+        <a href="{{ route('admin.projects.index') }}">
+            <li class="nav-item">Lista progetti</li>
+        </a>
+
     </ul>
 </aside>

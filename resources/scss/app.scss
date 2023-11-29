@@ -2,27 +2,37 @@
 
 @import "./header";
 
-aside {
-    width: 200px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
     height: calc(100vh - 60px);
-    background-color: grey;
-    ul {
-        margin: 20px;
-        li {
-            padding: 10px;
-            border-radius: 10px;
-            &:hover {
-                background-color: white;
-                cursor: pointer;
-            }
-            &:hover a {
-                color: black;
-            }
-            margin-bottom: 10px;
+    aside {
+        width: 200px;
+        height: calc(100vh - 60px);
+        background-color: grey;
+        ul {
+            padding-left: 20px;
             a {
                 text-decoration: none;
                 color: white;
+                cursor: pointer;
+                li {
+                    padding: 10px 20px 10px 20px;
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                    }
+                }
             }
         }
+    }
+    .main_content {
+        padding: 20px;
+        height: 100%;
+        overflow: auto;
     }
 }
