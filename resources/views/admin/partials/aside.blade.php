@@ -12,7 +12,11 @@
 
 
         <a href="{{ route('admin.projects.index') }}">
-            <li class="nav-item">Lista progetti</li>
+            <li class="nav-item">Projects list</li>
+        </a>
+
+        <a href="{{ route('admin.projects.create') }}">
+            <li class="nav-item">Add project</li>
         </a>
 
     </ul>

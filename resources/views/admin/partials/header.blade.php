@@ -1,6 +1,6 @@
 <header class="bg-dark">
     <nav class="navbar navbar-dark">
-        <div class="container-fluid d-flex justify-content-between">
+        <div class="container-fluid d-flex justi">
             <a class="navbar-brand" target="_blank" href="{{ route('home') }}">BOOLFOLIO</a>
             <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
                 @csrf

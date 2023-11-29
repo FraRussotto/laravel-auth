@@ -26,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -37,7 +37,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $new_project = new Project();
+
+        $form_data['slug'] = Project::generateSlug($form_data['name']);
+        $new_project->fill($form_data);
+
+        $new_project->save();
+        return redirect()->route('admin.projects.show', $new_project);
     }
 
     /**
@@ -57,9 +64,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -69,9 +76,17 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $form_data = $request->all();
+        if ($project['name'] == $form_data['name']) {
+            $form_data['slug'] = $project['slug'];
+        } else {
+            $form_data['slug'] = Project::generateSlug($form_data['name']);
+        }
+
+        $project->update($form_data);
+        return view('admin.projects.show', compact('project'));
     }
 
     /**

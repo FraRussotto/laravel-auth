@@ -18,9 +18,11 @@
                     <td>{{ $project->date }}</td>
                     <td>{!! $project->description !!}</td>
                     <td><a href="{{ $project->link }}">{{ $project->link }}</a></td>
-                    <td style="width: 200px">
+                    <td>
                         <a href="{{ route('admin.projects.show', $project) }}"
-                            class="card-link btn btn-success d-inline-block"><i class="fa-regular fa-eye"></i></a>
+                            class="card-link btn btn-success d-inline-block mb-2"><i class="fa-regular fa-eye"></i></a>
+                        <a href="{{ route('admin.projects.edit', $project) }}"
+                            class="card-link btn btn-warning d-inline-block mb-2"><i class="fa-solid fa-pencil"></i></a>
                         @include('admin.partials.delete')
                     </td>
                 </tr>
