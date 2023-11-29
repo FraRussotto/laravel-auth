@@ -20,6 +20,12 @@ main {
                 text-decoration: none;
                 color: white;
                 cursor: pointer;
+                &.active {
+                    background-color: white;
+                }
+                &.active li {
+                    color: black;
+                }
                 li {
                     padding: 10px 20px 10px 20px;
                     &:hover {
