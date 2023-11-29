@@ -1,1 +1,28 @@
-@import '~bootstrap/scss/bootstrap'
+@import "~bootstrap/scss/bootstrap";
+
+@import "./header";
+
+aside {
+    width: 200px;
+    height: calc(100vh - 60px);
+    background-color: grey;
+    ul {
+        margin: 20px;
+        li {
+            padding: 10px;
+            border-radius: 10px;
+            &:hover {
+                background-color: white;
+                cursor: pointer;
+            }
+            &:hover a {
+                color: black;
+            }
+            margin-bottom: 10px;
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+}
