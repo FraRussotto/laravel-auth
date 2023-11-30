@@ -37,6 +37,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'date' => 'required|max:12',
+            'description' => 'min:10|max:500',
+            'link' => 'required|min:3|max:100'
+        ], [
+            'name.required' => 'Il nome del progetto è richiesto',
+            'name.min' => 'Il nome del progetto deve avere almeno 3 caratteri',
+            'name.max' => 'Il nome del progetto deve avere massimo 50 caratteri',
+            'date.required' => 'La data è richiesta',
+            'date.max' => 'La data deve avere massimo 12 caratteri',
+            'description.min' => 'La descrizione deve avere almeno 10 caratteri',
+            'link.required' => 'Link richiesto',
+        ]);
+
         $form_data = $request->all();
         $new_project = new Project();
 

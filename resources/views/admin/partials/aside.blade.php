@@ -1,23 +1,25 @@
 <aside>
     <ul class="nav d-flex flex-column">
 
-        <a target="_blank" href="{{ route('home') }}">
+        {{-- <a target="_blank" href="{{ route('home') }}">
             <li class="nav-item">Guest</li>
-        </a>
+        </a> --}}
 
 
-        <a href="{{ route('admin.home') }}" @class(['active' => Route::is('admin.home')])>
-            <li class="nav-item">Dashboard</li>
-        </a>
+        <li class="nav-item @class(['active' => Route::is('admin.home')])">
+            <a href="{{ route('admin.home') }}"><i class="fa-solid fa-house-laptop me-3 fs-4"></i>Dashboard</a>
+        </li>
 
 
-        <a href="{{ route('admin.projects.index') }}" @class(['active' => Route::is('admin.projects.index')])>
-            <li class="nav-item">Projects list</li>
-        </a>
+        <li class="nav-item @class(['active' => Route::is('admin.projects.index')])">
+            <a href="{{ route('admin.projects.index') }}"><i class="fa-solid fa-table-list me-3 fs-4"></i>Projects
+                list</a>
+        </li>
 
-        <a href="{{ route('admin.projects.create') }}" @class(['active' => Route::is('admin.projects.create')])>
-            <li class="nav-item">Add project</li>
-        </a>
+        <li class="nav-item @class(['active' => Route::is('admin.projects.create')])">
+            <a href="{{ route('admin.projects.create') }}"><i class="fa-solid fa-square-plus me-3 fs-4"></i>Add
+                project</a>
+        </li>
 
     </ul>
 </aside>
