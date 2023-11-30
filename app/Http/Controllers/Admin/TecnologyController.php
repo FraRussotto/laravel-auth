@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Tecnology;
 
 class TecnologyController extends Controller
 {
@@ -14,7 +15,8 @@ class TecnologyController extends Controller
      */
     public function index()
     {
-        //
+        $tecnologies = Tecnology::all();
+        return view('admin.tecnologies.index', compact('tecnologies'));
     }
 
     /**
@@ -35,7 +37,16 @@ class TecnologyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $exists = Tecnology::where('name', $request->name)->first();
+        if ($exists) {
+            return redirect()->route('admin.tecnologies.index')->with('error', 'Tecnologia già presenta');
+        } else {
+            $new_tecnology = new Tecnology();
+            $new_tecnology->name = $request->name;
+            $new_tecnology->slug = Tecnology::generateSlug($request->name);
+            $new_tecnology->save();
+            return redirect()->route('admin.tecnologies.index')->with('success', 'Tecnologia inserita con successo');
+        }
     }
 
     /**
