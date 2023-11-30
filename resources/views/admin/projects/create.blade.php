@@ -15,23 +15,34 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    aria-describedby="title">
+                    aria-describedby="title" value="{{ old('name') }}">
                 @error('name')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="date" class="form-label">Date</label>
-                <input type="text" class="form-control" id="date" name="date" aria-describedby="title">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="date" name="date"
+                    aria-describedby="title" value="{{ old('date') }}">
+                @error('date')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Descrizione prodotto" id="description" name="description"
-                    style="height: 200px"></textarea>
-                <label for="floatingTextarea2">Exercise's description</label>
+                <textarea class="form-control @error('name') is-invalid @enderror" placeholder="Descrizione prodotto" id="description"
+                    name="description" style="height: 200px">{{ old('description') }}</textarea>
+                <label for="floatingTextarea2">Description</label>
+                @error('description')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="link" class="form-label">Link</label>
-                <input type="text" class="form-control" id="link" name="link" aria-describedby="title">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="link" name="link"
+                    aria-describedby="title" value="{{ old('link') }}">
+                @error('link')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="text-center">
 
