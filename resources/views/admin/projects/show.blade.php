@@ -21,7 +21,10 @@
                 </td>
                 <td>
                     @include('admin.partials.edit')
-                    @include('admin.partials.delete')
+                    @include('admin.partials.delete', [
+                        'route' => route('admin.projects.destroy', $project),
+                        'message' => 'Vuoi cancellare questo progetto?',
+                    ])
                 </td>
             </tr>
         </tbody>

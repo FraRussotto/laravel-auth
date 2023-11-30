@@ -46,13 +46,10 @@
                         <td>
                             <a href="{{ route('admin.tecnologies.edit', $tecnology) }}" class="btn btn-warning"><i
                                     class="fa-solid fa-pencil"></i></a>
-                            <form action="{{ route('admin.tecnologies.destroy', $tecnology) }}" method="POST"
-                                class="d-inline-block" onsubmit="return confirm('Sicuro di volerlo eliminare?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                            </form>
-                            </form>
+                            @include('admin.partials.delete', [
+                                'route' => route('admin.tecnologies.destroy', $tecnology),
+                                'message' => 'Vuoi eliminare questa tecnologia?',
+                            ])
                         </td>
                     </tr>
                 @endforeach
