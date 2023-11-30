@@ -37,13 +37,21 @@ class TecnologyController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:30',
+        ], [
+            'name.required' => 'Il nome della tecnologia è richiesto',
+            'name.max' => 'Il nome della tecnologia deve avere massimo 30 caratteri',
+        ]);
+
         $exists = Tecnology::where('name', $request->name)->first();
         if ($exists) {
             return redirect()->route('admin.tecnologies.index')->with('error', 'Tecnologia già presenta');
         } else {
+            $form_data = $request->all();
             $new_tecnology = new Tecnology();
-            $new_tecnology->name = $request->name;
-            $new_tecnology->slug = Tecnology::generateSlug($request->name);
+            $form_data['slug'] = Tecnology::generateSlug($form_data['name']);
+            $new_tecnology->fill($form_data);
             $new_tecnology->save();
             return redirect()->route('admin.tecnologies.index')->with('success', 'Tecnologia inserita con successo');
         }

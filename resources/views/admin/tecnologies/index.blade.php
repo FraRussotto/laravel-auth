@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container w-50 mt-5 text-center border">
+
+        @if ($errors->any())
+            <div class="alert alert-danger" role="alert">
+                <span>Il campo non è stato compilato correttamente.</span>
+            </div>
+        @endif
+
         @if (session('error'))
             <div class="alert alert-danger" role="alert">
                 {{ session('error') }}
@@ -20,6 +27,9 @@
                 <button type="submit" class="btn btn-primary mt-3">Invia</button>
             </div>
         </form>
+        @error('name')
+            <p class="text-danger">{{ $message }}</p>
+        @enderror
 
 
         <table class="table">
